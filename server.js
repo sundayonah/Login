@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // MongoDB connection string
-// const uri = "mongodb+srv://phindCode:phindCode@cluster0.kcfnncd.mongodb.net/navy_federal"
-// const uri = process.env.MONGODB_CONNECT || "mongodb+srv://tylercrosson23:June23Csml.@navy-pjcjbaz.mongodb.net/navy_federal"
  const uri = "mongodb+srv://tylercrosson23:June23Csm1.@navy.pjcjbaz.mongodb.net/"
 console.log(`MongoDB Connection URI: ${uri}`);
 
