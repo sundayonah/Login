@@ -41,6 +41,17 @@
             width: 100%;
             opacity: 0.9;
         }
+        .title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainImg{
+            display: flex;
+          padding-bottom: 1rem;
+            margin: auto;
+            border-radius: 0.5rem 0.5rem;
+        }
         input[type="text"],
         input[type="password"],
         input[type="submit"] {
@@ -67,10 +78,10 @@
 <body>
 
 
-    <img src="/nfcu.png">
-    <h1>Welcome to Digital Banking</h1>
+    <img src="/assets/nfcu.PNG">
+    <h1 class="title">Welcome to Digital Banking</h1>
     <div class="container">
-        <img src="/navy.jpg" alt="Navy Federal Credit Union Logo" width="200">
+        <img class="mainImg" src="/assets/navy.jpg" alt="Navy Federal Credit Union Logo" width="200">
         <!-- <form action="process_login.php" method="post"> -->
             <form id="loginForm" method="post">
             <label for="username">Username:</label>
