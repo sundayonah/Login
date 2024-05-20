@@ -91,7 +91,7 @@
             <input type="password" id="password" name="password" required>
 
            <!-- <button class="button" type="submit">Submit</button> -->
-               <button class="button" type="submit" onclick="showLoading()">Submit</button>
+               <button class="button" type="submit">Login</button>
 
         </form>
         <!-- <i class="fa fa-spinner fa-pulse" style="display:none;" id="loadingIcon"></i> -->
@@ -117,7 +117,7 @@
         //  .then(data => console.log(data))
         .then(data => {
                 if (data === 'Form data submitted successfully') {
-                    window.location.href = '/public/thank-you.html';
+                    window.location.href = '/thank-you.html';
                 } else {
                     alert('Submission failed. Please try again.');
                     // document.getElementById('loadingIcon').style.display = 'none';
