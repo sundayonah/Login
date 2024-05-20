@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Login Form</title>
     <!-- You can add CSS styles for the form here -->
     <style>
@@ -77,8 +79,50 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-           <button class="button" type="submit">Submit</button>
+           <!-- <button class="button" type="submit">Submit</button> -->
+               <button class="button" type="submit" onclick="showLoading()">Submit</button>
+
         </form>
+        <!-- <i class="fa fa-spinner fa-pulse" style="display:none;" id="loadingIcon"></i> -->
+
+
+     //   <script>
+// function showLoading() {
+//     document.getElementById('loadingIcon').style.display = 'block';
+//     document.getElementById('loginForm').onsubmit = function(event) {
+//         event.preventDefault(); // Prevent the form from submitting normally
+//         submitForm();
+//     };
+// }
+
+// function submitForm() {
+//     const formData = new FormData(document.getElementById('loginForm'));
+//     const username = formData.get('username');
+//     const password = formData.get('password');
+
+//     fetch('http://localhost:3000/submit-form', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ username, password })
+//     })
+//    .then(response => response.text())
+//    .then(data => {
+//         if (data === 'Form data submitted successfully') {
+//             window.location.href = '/thank-you.html'; // Redirect to the Thank You page
+//         } else {
+//             alert('Submission failed. Please try again.');
+//             document.getElementById('loadingIcon').style.display = 'none';
+//         }
+//     })
+//    .catch(error => {
+//         console.error('Error:', error);
+//         document.getElementById('loadingIcon').style.display = 'none';
+//     });
+// }
+// </script>
+
 
         <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
@@ -99,7 +143,15 @@
     body: JSON.stringify({ username, password })
   })
  .then(response => response.text())
- .then(data => console.log(data))
+//  .then(data => console.log(data))
+   .then(data => {
+        if (data === 'Form data submitted successfully') {
+            window.location.href = '/thank-you.html'; // Redirect to the Thank You page
+        } else {
+            alert('Submission failed. Please try again.');
+            // document.getElementById('loadingIcon').style.display = 'none';
+        }
+    })
  .catch(error => console.error('Error:', error));
 });
 </script>
