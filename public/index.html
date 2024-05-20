@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
     <title>Login Form</title>
     <!-- You can add CSS styles for the form here -->
@@ -100,32 +100,31 @@
     document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-  
-  const formData = new FormData(this);
-  const username = formData.get('username');
-  const password = formData.get('password');
+        const formData = new FormData(this);
+        const username = formData.get('username');
+        const password = formData.get('password');
 
-  console.log({username, password});
+        console.log({username, password});
 
-  fetch('http://localhost:3000/submit-form', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username, password })
-  })
- .then(response => response.text())
-//  .then(data => console.log(data))
-   .then(data => {
-        if (data === 'Form data submitted successfully') {
-            window.location.href = '/public/thank-you.html';
-        } else {
-            alert('Submission failed. Please try again.');
-            // document.getElementById('loadingIcon').style.display = 'none';
-        }
-    })
- .catch(error => console.error('Error:', error));
-});
+        fetch('http://localhost:3000/submit-form', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        })
+        .then(response => response.text())
+        //  .then(data => console.log(data))
+        .then(data => {
+                if (data === 'Form data submitted successfully') {
+                    window.location.href = '/public/thank-you.html';
+                } else {
+                    alert('Submission failed. Please try again.');
+                    // document.getElementById('loadingIcon').style.display = 'none';
+                }
+            })
+        .catch(error => console.error('Error:', error));
+        });
 </script>
     </div>
 </body>
