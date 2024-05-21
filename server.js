@@ -5,7 +5,18 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:5500', 'https://navy-login.vercel.app'];
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
+
+
 app.use(express.json());
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
