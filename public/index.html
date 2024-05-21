@@ -153,16 +153,6 @@ img {
         console.log({username, password});
 
 
-
-        //  fetch('http://localhost:3000/login ', {
-        //  fetch('https://navy-login.vercel.app/login ', {
-        //     method: 'POST',
-        //      mode: 'no-cors', 
-        //     headers: {
-        //     'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ username, password })
-        // })
         axios.post('http://localhost:3000/login', {
             username,
             password
