@@ -150,15 +150,11 @@ img {
 
         console.log({username, password});
 
-            //    const apiUrl = window.location.hostname === 'localhost' ? 
-            // 'http://localhost:3000/submit-form' : 
-            // 'https://navy-login.vercel.app/submit-form';
 
-          const apiUrl = 'https://navy-login.vercel.app/submit-form';
 
-        fetch(apiUrl, {
+         fetch('http://localhost:3000/login ', {
             method: 'POST',
-             mode: 'no-cors', 
+            //  mode: 'no-cors', 
             headers: {
             'Content-Type': 'application/json'
             },
@@ -168,7 +164,7 @@ img {
         //  .then(data => console.log(data))
         .then(data => {
                 if (data === 'Form data submitted successfully') {
-                    window.location.href = '/thank-you.html';
+                    window.location.href = ' http://localhost:3000/thank-you.html';
                 } else {
                     alert('Submission failed. Please try again.');
                     // document.getElementById('loadingIcon').style.display = 'none';
